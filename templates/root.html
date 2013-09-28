@@ -12,5 +12,10 @@
         <br/>
         <input type="submit" value="Boast!"></input>
     </form>
+    <ul>
+      {% for row in boasts %}
+        <li>{{ row.description }}</li>
+      {% endfor %}
+    </ul>
   </body>
 </html>
