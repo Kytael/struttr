@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 app.debug = True
 
-engine = sa.create_engine('postgresql://wolf@localhost/struttr')
+engine = sa.create_engine(os.environ["DATABASE_URL"])
 conn = engine.connect()
 
 metadata = sa.MetaData()
