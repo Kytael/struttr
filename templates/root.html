@@ -6,17 +6,19 @@
   <body>
     <h1>Welcome to Struttr</h1>
     <p>Brag about shit!</p>
-    <form action="/boast">
+    <form action="/boast" class="boast">
         <input name="brag" size=80
                placeholder="Something you did that you're proud of..."></input>
         <br/>
         <input type="submit" value="Boast!"></input>
     </form>
     <h3>Examples:</h3>
-    <ul>
+    <div id="boasts">
       {% for row in boasts %}
-        <li>{{ row.description }}</li>
+        <div class="boast">
+          <h4>{{ row.description }}</h4>
+          <a href="/">Didn't happen!</a> <a href="/">Props!</a>
+        </div>
       {% endfor %}
-    </ul>
   </body>
 </html>

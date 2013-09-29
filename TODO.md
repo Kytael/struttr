@@ -6,3 +6,6 @@ Things to Do
 *   Select a subset of the available awesome
 
 *   Add usernames
+
+
+users have credibility
