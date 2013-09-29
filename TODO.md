@@ -1,12 +1,8 @@
 Things to Do
 ============
 
-*   add dependencies for heroku
+*   Better web design
 
-*   Make it use env variables for heroku
+*   Select a subset of the available awesome
 
-*   Install heroku postgres addon
-
-*   Migrate DB on heroku
-
-*   Make it work
+*   Add usernames
