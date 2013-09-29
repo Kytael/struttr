@@ -4,21 +4,24 @@
     <link rel="stylesheet" type="text/css" href="/static/style.css"></link>
   </head>
   <body>
-    <h1> <img src="/static/images/haters_small.gif" title="haters"> Welcome to Struttr</h1>
-    <p>Brag about shit!</p>
-    <form action="/boast" class="boast">
-        <input name="brag" size=80
-               placeholder="Something you did that you're proud of..."></input>
-        <br/>
-        <input type="submit" value="Boast!"></input>
-    </form>
-    <h3>Examples:</h3>
-    <div id="boasts">
-      {% for row in boasts %}
-        <div class="boast">
-          <h4>{{ row.description }}</h4>
-          <a href="/">Didn't happen!</a> <a href="/">Props!</a>
-        </div>
-      {% endfor %}
+    <header>
+      <h1><img src="/static/images/haters_small.gif">Struttr</h1>
+    </header>
+    <article>
+      <p>Brag about shit!</p>
+      <div id="boasts">
+        <form action="/boast" class="boast">
+            <input name="brag" size=80
+                   placeholder="Something you did that you're proud of..."></input>
+            <br/>
+            <input type="submit" value="Boast!"></input>
+        </form>
+        {% for row in boasts %}
+          <div class="boast">
+            <h4>{{ row.description }}</h4>
+            <a href="/">Didn't happen!</a> <a href="/">Props!</a>
+          </div>
+        {% endfor %}
+      </article>
   </body>
 </html>
