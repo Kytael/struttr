@@ -1,11 +1,11 @@
 Things to Do
 ============
 
-*   Better web design
-
-*   Select a subset of the available awesome
-
 *   Add usernames
 
+*   brainstorm
 
-users have credibility
+Ideas
+-----
+
+See the workflowy

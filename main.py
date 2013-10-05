@@ -18,7 +18,7 @@ metadata.create_all(engine)
 
 @app.route('/')
 def root():
-    res = conn.execute(boasts.select())
+    res = conn.execute(boasts.select().limit(10).order_by(boasts.c.id.desc()))
     return render_template('root.html', boasts = res)
 
 @app.route('/boast', methods=['GET', 'POST'])
