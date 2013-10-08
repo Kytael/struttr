@@ -11,13 +11,17 @@ conn = engine.connect()
 
 #define our tables
 #this will physically create the table if it doesn't exist.
-#don't know what it does if it exists but doesn't match
+#don't know what it does if table doesn't match schema exists but doesn't match
 metadata = sa.MetaData()
 boasts = sa.Table("boasts", metadata,
     sa.Column('id', sa.Integer, primary_key=True),
     sa.Column('description', sa.String))
 
-#need to add some tables for 
+boats = sa.Table("boats", metadata,
+    sa.Column('id', sa.Integer, primary_key=True),
+    sa.Column('boast', sa.Integer, sa.ForeignKey("boasts.id")))
+
+#need to add some tables for ubots
 
 #actually the action happens here I guess but whatevs,
 #the control surface is the above
@@ -33,8 +37,10 @@ def root():
 def bsts():
     #this black incantation summons the latest 10 boasts from the netherbase
     res = conn.execute(boasts.select().limit(10).order_by(boasts.c.id.desc()))
+   # boastid = 8
+   # boatcount = boats.select().where(boats.c.boast == boastid).count()
     #can't serialize rows to json automatically; SQLalchemy sux
-    return jsonify({'json': [{'id': r.id, 'description': r.description} for r in res]})
+    return jsonify({'json': [{'id': r.id, 'description': r.description, 'boats': 5 } for r in res]})
 
 #boastan post entry point
 @app.route('/boast', methods=['POST'])
@@ -47,3 +53,12 @@ def boast():
     conn.execute(ins)
     #flask needs an actual response for some reason:
     return "whatever, man"
+
+@app.route('/boat', methods=['POST'])
+def boat():
+    payload = request.data
+    data = json.loads(payload)
+    boat = data['boat']
+    ins = boats.insert().values(boast=boat)
+    conn.execute(ins)
+    return "cool story bro"

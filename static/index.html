@@ -19,10 +19,10 @@
             <input type="submit" value="Boast!"></input>
         </form>
         <h2>Inspiration:</h2>
-        <div class="boast" ng-repeat="boast in boasts">
+        <form ng-submit="boat(boast.id)" class="boast" ng-repeat="boast in boasts">
           <h4>{{ boast.description }}</h4>
-          <button>Props!</button>
-        </div>
+          {{boast.boats}} <input type="submit" value="Props!"></input> 
+        </form>
       </article>
   </body>
 </html>

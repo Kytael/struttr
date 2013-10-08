@@ -13,11 +13,21 @@ function Struttr($scope, $http) {
         });
     }
     getboasts();
+
+
     $scope.boast = function () {
         $http.post("/boast", {boast: $scope.imad}).
         success(function () {
             getboasts()
             $scope.imad = ""
+        });
+    }
+
+
+    $scope.boat = function (id) {
+        $http.post("/boat", {boat: id}).
+        success(function () {
+            getboasts()
         });
     }
 }
