@@ -1,28 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html ng-app>
   <head>
     <link rel="stylesheet" type="text/css" href="/static/style.css"></link>
+    <script src="/static/angular.min.js"></script>
+    <script src="/static/struttr.js"></script>
   </head>
-  <body>
+  <body ng-controller="Struttr">
     <header>
       <h1>Struttr</h1>
     </header>
     <article>
       <h2>Brag about shit!</h2>
       <div id="boasts">
-        <form action="/boast" class="boast">
-            <input name="brag" size=80
+        <form ng-submit="boast()" class="boast">
+            <input name="brag" size=80 ng-model="imad"
                    placeholder="Something you did that you're proud of..."></input>
             <br/>
             <input type="submit" value="Boast!"></input>
         </form>
         <h2>Inspiration:</h2>
-        {% for row in boasts %}
-          <div class="boast">
-            <h4>{{ row.description }}</h4>
-            <button>Props!</button>
-          </div>
-        {% endfor %}
+        <div class="boast" ng-repeat="boast in boasts">
+          <h4>{{ boast.description }}</h4>
+          <button>Props!</button>
+        </div>
       </article>
   </body>
 </html>

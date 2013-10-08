@@ -1,9 +1,13 @@
 Things to Do
 ============
 
-*   Add usernames
+*   Angularize front end
 
-*   brainstorm
+*   Put props counter in database
+
+*   Connect front end voting to db
+
+*   Add usernames
 
 Ideas
 -----
